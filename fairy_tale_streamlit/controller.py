@@ -42,11 +42,11 @@ def generate_fairy_tale(thema):
 
 
 # 음성 재생 함수
-def play_openai_voice(text, voice_name="alloy", speed=1):
+def play_openai_voice(text, voice="alloy", speed=1):
     # 1. TTS 음성 생성
     response = openai.audio.speech.create(
         model="tts-1",
-        voice=voice_name,
+        voice=voice,
         input=text
     )
     # 2. 임시 파일에 저장

@@ -43,37 +43,23 @@ def generate_fairy_tale(thema):
 
 
 # 비동기 음성 재생 함수
-async def play_openai_voice(text, voice_name="alloy", speed=1):
+def play_openai_voice_sync(text, voice_name="alloy", speed=1):
+    # 1. TTS 음성 생성
+    response = openai.audio.speech.create(
+        model="tts-1",
+        voice=voice_name,
+        input=text
+    )
+    # 2. 임시 파일에 저장
     tmp_path = None
-
-    try:
-        # OpenAI TTS API 호출
-        response = client.audio.speech.create(
-            model="tts-1",
-            voice=voice_name,
-            input=text
-        )
-
-        # 임시 MP3 파일 생성
-        if hasattr(response, 'content') and response.content:
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_file:
-                tmp_file.write(response.content)
-                tmp_path = tmp_file.name
-
-            # playsound는 blocking이므로 executor로 실행
-            loop = asyncio.get_running_loop()
-            await loop.run_in_executor(None, playsound, tmp_path)
-        else:
-            print("TTS 응답이 비어있습니다.")
-    except Exception as e:
-        print(f"음성 생성/재생 중 오류: {e}")
-    finally:
-        if tmp_path and os.path.exists(tmp_path):
-            await asyncio.sleep(1)
-            try:
-                os.remove(tmp_path)
-            except Exception as e:
-                print(f"파일 삭제 중 오류 발생: {e}")
+    if hasattr(response, 'content') and response.content:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_file:
+            tmp_file.write(response.content)
+            tmp_path = tmp_file.name
+    else:
+        st.error("TTS 응답이 없습니다.")
+        return None
+    return tmp_path
 
 
 # 비동기 이미지 생성 함수

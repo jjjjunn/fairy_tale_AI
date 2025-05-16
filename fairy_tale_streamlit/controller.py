@@ -48,7 +48,7 @@ async def play_openai_voice(text, voice_name="alloy", speed=1):
 
     try:
         # OpenAI TTS API 호출
-        response = await openai.audio.speech.create(
+        response = openai.audio.speech.create(
             model="tts-1",
             voice=voice_name,
             input=text

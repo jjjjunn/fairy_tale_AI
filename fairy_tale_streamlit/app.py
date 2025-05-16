@@ -35,14 +35,14 @@ if st.button("동화 생성"):
 # 동화 내용 표시
 st.text_area("생성된 동화:", st.session_state.fairy_tale_text, height=300)
 
-# 음성으로 듣기 버튼 (비동기로 실행)
 if st.button("음성으로 듣기"):
-    if st.session_state.fairy_tale_text:
-        asyncio.run(play_openai_voice(
-            st.session_state.fairy_tale_text, voice, speed
-        ))
+    if st.session_state.get("fairy_tale_text"):
+        audio_file = play_openai_voice_sync(st.session_state.fairy_tale_text)
+        if audio_file:
+            st.audio(audio_file)
+            os.remove(audio_file)
     else:
-        st.warning("먼저 동화를 생성해주세요.")
+        st.warning("먼저 동화를 생성하세요.")
 
 # 이미지 생성 버튼 (동기 함수 내부에서 비동기 함수 실행)
 if st.button("동화 이미지 생성"):

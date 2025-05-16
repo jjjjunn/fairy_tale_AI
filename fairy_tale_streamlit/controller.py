@@ -10,7 +10,7 @@ load_dotenv()  # .env 파일에서 환경변수 로드
 
 # OpenAI API 키 가져오기
 #openai_api_key = os.getenv('OPENAI_API_KEY')
-openai.api_key = st.secrets["openai"]["OPENAI_API_KEY"]
+openai.api_key = st.secrets["OpenAI"]["OPENAI_API_KEY"]
 if not openai_api_key:
     raise ValueError("환경변수 'OPENAI_API_KEY'가 설정되지 않았습니다.")
 openai.api_key = openai_api_key

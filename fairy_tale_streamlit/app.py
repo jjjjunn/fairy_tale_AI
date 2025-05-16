@@ -1,6 +1,7 @@
 import streamlit as st
 import asyncio
 from controller import generate_fairy_tale, play_openai_voice, generate_image_from_fairy_tale
+import os
 
 # 초기 상태 설정
 if 'fairy_tale_text' not in st.session_state:

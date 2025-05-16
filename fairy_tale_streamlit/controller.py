@@ -5,6 +5,7 @@ from playsound import playsound
 import asyncio
 from dotenv import load_dotenv
 import streamlit as st
+from openai import OpenAI
 
 load_dotenv()  # .env 파일에서 환경변수 로드
 
@@ -21,6 +22,8 @@ if not openai_api_key:
 # 3. openai에 API 키 등록
 openai.api_key = openai_api_key
 
+client = OpenAI()
+
 # 동화 생성 함수
 def generate_fairy_tale(thema):
     prompt = (
@@ -28,7 +31,7 @@ def generate_fairy_tale(thema):
         "등장인물, 배경, 사건 등의 디테일을 포함하고, 엄마가 아이에게 읽어주듯 친절한 말투로 써줘."
     )
     try:
-        completion = openai.chat.completions.create(
+        completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=4096,

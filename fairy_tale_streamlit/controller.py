@@ -4,6 +4,7 @@ import tempfile
 from playsound import playsound
 import asyncio
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()  # .env 파일에서 환경변수 로드
 

@@ -1,5 +1,5 @@
 streamlit==1.13.0
-openai==0.27.0
+openai>=1.0.0
 altair==4.2.0
 duckduckgo_search>=6.2.0,<7.0.0
 playsound==1.2.2

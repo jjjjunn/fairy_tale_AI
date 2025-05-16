@@ -38,7 +38,7 @@ st.text_area("생성된 동화:", st.session_state.fairy_tale_text, height=300)
 # 음성으로 듣기 버튼 (비동기로 실행)
 if st.button("음성으로 듣기"):
     if st.session_state.fairy_tale_text:
-        asyncio.create_task(play_openai_voice(
+        asyncio.run(play_openai_voice(
             st.session_state.fairy_tale_text, voice, speed
         ))
     else:

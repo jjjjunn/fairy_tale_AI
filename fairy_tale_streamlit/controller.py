@@ -51,7 +51,7 @@ async def play_openai_voice(text, voice_name="alloy", speed=1):
                 tmp_path = tmp_file.name
 
             # playsound는 blocking이므로 executor로 실행
-            loop = asyncio.get_event_loop()
+            loop = asyncio.get_running_loop()
             await loop.run_in_executor(None, playsound, tmp_path)
         else:
             print("TTS 응답이 비어있습니다.")

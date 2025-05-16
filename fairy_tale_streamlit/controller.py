@@ -22,7 +22,7 @@ if not openai_api_key:
 # 3. openai에 API 키 등록
 openai.api_key = openai_api_key
 
-client = OpenAI()
+client = OpenAI(api_key=openai_api_key)
 
 # 동화 생성 함수
 def generate_fairy_tale(thema):

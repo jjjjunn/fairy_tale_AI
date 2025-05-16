@@ -42,8 +42,8 @@ def generate_fairy_tale(thema):
         return f"동화 생성 중 오류 발생: {e}"
 
 
-# 비동기 음성 재생 함수
-def play_openai_voice_sync(text, voice_name="alloy", speed=1):
+# 음성 재생 함수
+def play_openai_voice(text, voice_name="alloy", speed=1):
     # 1. TTS 음성 생성
     response = openai.audio.speech.create(
         model="tts-1",

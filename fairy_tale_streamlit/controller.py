@@ -10,11 +10,16 @@ load_dotenv()  # .env 파일에서 환경변수 로드
 
 # OpenAI API 키 가져오기
 #openai_api_key = os.getenv('OPENAI_API_KEY')
-openai.api_key = st.secrets["OpenAI"]["OPENAI_API_KEY"]
+
+# 1. 변수에 값 할당하기
+openai_api_key = st.secrets["OpenAI"]["OPENAI_API_KEY"]
+
+# 2. 값이 없으면 에러 처리
 if not openai_api_key:
     raise ValueError("환경변수 'OPENAI_API_KEY'가 설정되지 않았습니다.")
-openai.api_key = openai_api_key
 
+# 3. openai에 API 키 등록
+openai.api_key = openai_api_key
 
 # 동화 생성 함수
 def generate_fairy_tale(thema):

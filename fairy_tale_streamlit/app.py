@@ -61,4 +61,4 @@ if st.button("동화 이미지 생성"):
 
 # 이미지 표시
 if st.session_state.image_url:
-    st.image(st.session_state.image_url, caption="동화 이미지", use_container_width=True)
+    st.image(st.session_state.image_url, caption="동화 이미지", use_column_width=True)

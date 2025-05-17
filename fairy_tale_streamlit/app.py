@@ -36,6 +36,7 @@ if st.button("동화 생성"):
 # 동화 내용 표시
 st.text_area("생성된 동화:", st.session_state.fairy_tale_text, height=300)
 
+# 음성 재생 버튼
 if st.button("음성으로 듣기"):
     if st.session_state.get("fairy_tale_text"):
         audio_file = play_openai_voice(st.session_state.fairy_tale_text, voice=voice)

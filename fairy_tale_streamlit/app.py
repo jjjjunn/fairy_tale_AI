@@ -46,20 +46,17 @@ if st.button("음성으로 듣기"):
     else:
         st.warning("먼저 동화를 생성하세요.")
 
-# 이미지 생성 버튼 (동기 함수 내부에서 비동기 함수 실행)
+# 이미지 생성 버튼
 if st.button("동화 이미지 생성"):
-    if st.session_state.fairy_tale_text:
-        def load_image():
-            image_url = generate_image_from_fairy_tale(st.session_state.fairy_tale_text)
-            if image_url:
-                st.session_state.image_url = image_url
-                st.success("이미지가 생성되었습니다!")
-            else:
-                st.warning("이미지 생성 중 오류가 발생했습니다.")
-
-        asyncio.run(load_image())
+    if st.session_state.fairy_tale_text.strip():
+        image_url = generate_image_from_fairy_tale(st.session_state.fairy_tale_text)
+        if image_url:
+            st.session_state.image_url = image_url
+            st.success("이미지가 생성되었습니다!")
+        else:
+            st.warning("이미지 생성에 실패했습니다. 입력을 다시 확인해주세요.")
     else:
-        st.warning("먼저 동화를 생성해주세요.")
+        st.warning("먼저 동화 내용을 입력해주세요.")
 
 # 이미지 표시
 if st.session_state.image_url:

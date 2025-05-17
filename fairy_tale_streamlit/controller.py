@@ -65,7 +65,7 @@ def play_openai_voice(text, voice="alloy", speed=1):
 async def generate_image_from_fairy_tale(fairy_tale_text):
     prompt = f"동화 속 장면을 묘사하는 그림을 그려줘: {fairy_tale_text[:300]}"
     try:
-        response = openai.images.generate(
+        response = await openai.images.generate(
             model="dall-e-3",
             prompt=prompt,
             size="1024x1024",

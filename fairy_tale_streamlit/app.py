@@ -49,8 +49,8 @@ if st.button("음성으로 듣기"):
 # 이미지 생성 버튼 (동기 함수 내부에서 비동기 함수 실행)
 if st.button("동화 이미지 생성"):
     if st.session_state.fairy_tale_text:
-        async def load_image():
-            image_url = await generate_image_from_fairy_tale(st.session_state.fairy_tale_text)
+        def load_image():
+            image_url = generate_image_from_fairy_tale(st.session_state.fairy_tale_text)
             if image_url:
                 st.session_state.image_url = image_url
                 st.success("이미지가 생성되었습니다!")

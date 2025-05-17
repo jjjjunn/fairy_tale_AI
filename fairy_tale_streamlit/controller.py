@@ -63,7 +63,7 @@ def play_openai_voice(text, voice="alloy", speed=1):
 
 # 이미지 생성 함수
 def generate_image_from_fairy_tale(fairy_tale_text):
-    prompt = f"동화 속 장면을 묘사하는 그림을 그려줘: {fairy_tale_text[:300]}"
+    prompt = f"동화 속 장면을 묘사한 그림: {fairy_tale_text[:300]}"
     try:
         response = openai.images.generate(
             model="dall-e-3",
@@ -71,12 +71,12 @@ def generate_image_from_fairy_tale(fairy_tale_text):
             size="1024x1024",
             n=1
         )
-
         if hasattr(response, "data") and response.data and len(response.data) > 0:
             return response.data[0].url
         else:
             print("이미지 생성 실패: 응답이 비어 있거나 형식이 잘못됨.")
+            print("전체 응답:", response)
             return None
     except Exception as e:
-        print(f"이미지 생성 중 오류: {e}")
+        print(f"이미지 생성 중 오류 발생:\n{e}")
         return None

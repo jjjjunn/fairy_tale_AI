@@ -49,6 +49,16 @@ if st.button("음성으로 듣기"):
     else:
         st.warning("먼저 동화를 생성하세요.")
 
+# 이미지 색상 모드 선택 버튼
+st.radio(
+    "모드를 선택해 주세요",
+    [":rainbow[Color]", "Black/White"],
+    captions=[
+        "색상 모드",
+        "흑백 모드",
+    ],
+)
+
 # 이미지 생성 버튼
 if st.button("동화 이미지 생성"):
     if st.session_state.fairy_tale_text.strip():

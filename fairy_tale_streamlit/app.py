@@ -53,11 +53,9 @@ if st.button("음성으로 듣기"):
 image_mode = st.radio(
     "모드를 선택해 주세요",
     [":rainbow[Color]", "Black/White"],
-    captions=[
-        "색상 모드",
-        "흑백 모드",
-    ],
+    index=None
 )
+st.write(f"{image_mode}를 선택하였습니다.")
 
 # 이미지 생성 버튼
 if st.button("동화 이미지 생성"):

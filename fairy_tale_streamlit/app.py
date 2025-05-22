@@ -33,7 +33,7 @@ st.write("선택한 목소리:", voice)
 
 # 동화 생성 버튼
 if st.button("동화 생성"):
-    st.session_state.fairy_tale_text = generate_fairy_tale(thema)  # 동화 생성
+    st.session_state.fairy_tale_text = generate_fairy_tale(name, thema)  # 동화 생성
     st.success("동화가 생성되었습니다!")  # 사용자 피드백
 
 # 동화 내용 표시

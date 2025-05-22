@@ -60,7 +60,7 @@ st.write(f"{image_mode}를 선택하였습니다.")
 # 이미지 생성 버튼
 if st.button("동화 이미지 생성"):
     if st.session_state.fairy_tale_text.strip():
-        image_url = generate_image_from_fairy_tale(st.session_state.fairy_tale_text)
+        image_url = generate_image_from_fairy_tale(image_mode, st.session_state.fairy_tale_text)
         if image_url:
             st.session_state.image_url = image_url
             st.success("이미지가 생성되었습니다!")

@@ -52,7 +52,7 @@ if st.button("음성으로 듣기"):
 # 이미지 색상 모드 선택 버튼
 image_mode = st.radio(
     "모드를 선택해 주세요",
-    [":rainbow[Color]", "Black/White"],
+    ["Color", "Black/White"],
     index=0, # 기본 선택값
 )
 st.write(f"{image_mode}를 선택하였습니다.")

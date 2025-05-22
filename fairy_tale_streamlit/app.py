@@ -12,7 +12,7 @@ if 'image_url' not in st.session_state:
 
 # Streamlit 앱 설정
 title = "태교 동화 생성봇"
-st.markdown("# 인공지능 비서 동글이입니다.")
+st.markdown("# 인공지능 동화작가 동글이입니다.")
 
 # 태아 또는 자녀 이름 입력 받기
 name = st.text_input("아이의 이름(태명)을 입력해 주세요", "")

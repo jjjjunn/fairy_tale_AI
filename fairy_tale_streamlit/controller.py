@@ -27,14 +27,14 @@ client = OpenAI(api_key=openai_api_key)
 # 동화 생성 함수
 def generate_fairy_tale(name, thema):
     prompt = (
-        prompt = f"""
-            You are a fairy tale writer.
-            
-            Please write a long and rich fairy tale in Korean about '{thema}', with the main character named '{name}'.  
-            The main character can be a human, an animal, or anyone you imagine.  
-            Include detailed descriptions of the characters, background, and events,  
-            and write in a warm and gentle tone as if a mother is reading the story to her child.
-            """
+        f"""
+        You are a fairy tale writer.
+        
+        Please write a long and rich fairy tale in Korean about '{thema}', with the main character named '{name}'.  
+        The main character can be a human, an animal, or anyone you imagine.  
+        Include detailed descriptions of the characters, background, and events,  
+        and write in a warm and gentle tone as if a mother is reading the story to her child.
+        """
     )
     try:
         completion = client.chat.completions.create(

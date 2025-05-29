@@ -65,7 +65,7 @@ def play_openai_voice(text, voice="alloy", speed=1):
 def generate_image_from_fairy_tale(image_mode, fairy_tale_text):
     try:
         base_prompt = f"동화 속 장면을 묘사한 그림: {fairy_tale_text[:300]}"
-        if image_mode = "Black/White":
+        if image_mode == "Black/White":
             style_note = "색칠용으로 흑백 라인으로 그려줘"
         else:
             style_note = "색상을 입혀서 그려줘"

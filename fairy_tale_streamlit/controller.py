@@ -27,7 +27,14 @@ client = OpenAI(api_key=openai_api_key)
 # 동화 생성 함수
 def generate_fairy_tale(name, thema):
     prompt = (
-        f"너는 동화 작가야. '{thema}'을 주제로 해서 '{name}'이 주인공인 등장인물, 배경, 사건 등의 디테일을 포함한 길고 풍부한 동화를 엄마가 아이에게 읽어주듯 친절한 말투로 생성해줘."
+        prompt = f"""
+            You are a fairy tale writer.
+            
+            Please write a long and rich fairy tale in Korean about '{thema}', with the main character named '{name}'.  
+            The main character can be a human, an animal, or anyone you imagine.  
+            Include detailed descriptions of the characters, background, and events,  
+            and write in a warm and gentle tone as if a mother is reading the story to her child.
+            """
     )
     try:
         completion = client.chat.completions.create(

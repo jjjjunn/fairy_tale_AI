@@ -63,14 +63,22 @@ def play_openai_voice(text, voice="alloy", speed=1):
 
 # 이미지 생성 함수
 def generate_image_from_fairy_tale(image_mode, fairy_tale_text):
-    prompt = f"동화 속 장면을 묘사한 그림: {fairy_tale_text[:300]} 을 {image_mode}로 출력해줘. 만약 {image_mode}가 'Black/White' 라면 색칠할 수 있게 라인만 그려줘"
     try:
-        response = openai.images.generate(
+        base_prompt = f"동화 속 장면을 묘사한 그림: {fairy_tale_text[:300]}"
+        if image_mode = "Black/White":
+            style_note = "색칠용으로 흑백 라인으로 그려줘"
+        else:
+            style_note = "색상을 입혀서 그려줘"
+
+        prompt = f"{base_prompt}를 {image_mode}에 맞게 그려줘"
+        response = client.images.generate(
             model="dall-e-3",
             prompt=prompt,
             size="1024x1024",
+            quality="standard",
             n=1
         )
+        
         if hasattr(response, "data") and response.data and len(response.data) > 0:
             return response.data[0].url
         else:

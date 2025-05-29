@@ -27,7 +27,7 @@ client = OpenAI(api_key=openai_api_key)
 # 동화 생성 함수
 def generate_fairy_tale(name, thema):
     prompt = (
-        f"너는 동화 작가야. '{thema}'을 주제로 해서 '{name}'이 주인공인 길고 풍부한 동화를 생성해줘. 등장인물, 배경, 사건 등의 디테일을 포함하고, 엄마가 아이에게 읽어주듯 친절한 말투로 써줘."
+        f"너는 동화 작가야. '{thema}'을 주제로 해서 '{name}'이 주인공인 등장인물, 배경, 사건 등의 디테일을 포함한 길고 풍부한 동화를 엄마가 아이에게 읽어주듯 친절한 말투로 생성해줘."
     )
     try:
         completion = client.chat.completions.create(

@@ -31,7 +31,7 @@ def generate_fairy_tale(name, thema):
         You are a fairy tale writer.
         
         Please write a long and rich fairy tale in Korean about '{thema}', with the main character named '{name}'.  
-        The main character can be a human, an animal, or anyone you imagine.  
+        The main character is an animal.  
         Include detailed descriptions of the characters, background, and events,  
         and write in a warm and gentle tone as if a mother is reading the story to her child.
         """

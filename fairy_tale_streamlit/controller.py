@@ -63,14 +63,15 @@ def play_openai_voice(text, voice="alloy", speed=1):
 
 # 이미지 생성 함수
 def generate_image_from_fairy_tale(image_mode, fairy_tale_text):
+    # 프롬프트 영어로 생성 시 응답 내용 더 정확해짐
     try:
-        base_prompt = f"동화 속 장면을 묘사한 그림: {fairy_tale_text[:300]}"
+        base_prompt = fairy_tale_text[:300].replace('\n', ' ')
         if image_mode == "Black/White":
-            style_note = "색칠용으로 흑백 라인으로 그려줘"
+            style_note = "in black and white line art style suitable for coloring books"
         else:
-            style_note = "색상을 입혀서 그려줘"
+            style_note = "in colorful, storybook-style illustration"
 
-        prompt = f"{base_prompt}를 {image_mode}에 맞게 그려줘"
+        prompt =  f"An illustration of a scene from a children's fairy tale: {base_prompt}, {style_note}."
         response = client.images.generate(
             model="dall-e-3",
             prompt=prompt,

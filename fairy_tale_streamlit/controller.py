@@ -67,7 +67,7 @@ def generate_image_from_fairy_tale(image_mode, fairy_tale_text):
     try:
         base_prompt = fairy_tale_text[:300].replace('\n', ' ')
         if image_mode == "Black/White":
-            style_note = "in black and white line art style suitable for coloring books"
+            style_note = "coloring book line art"
         else:
             style_note = "in colorful, storybook-style illustration"
 
